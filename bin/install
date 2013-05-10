@@ -1,0 +1,23 @@
+#!/bin/bash -e
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+FUSE_DIR=${OPENSHIFT_PRIMARY_CARTRIDGE_DIR}/container
+FUSE_BIN_DIR=${FUSE_DIR}/bin
+
+if [ ! -d "$FUSE_DIR" ]; then
+    client_error "This cartridge can only be applied to apps running the fuse cartridge!"
+    exit 151
+fi
+
+if [ -z "$ZOOKEEPER_URL" ]
+then
+    client_error "Fuse registry does not exist!  Please create with rhc app create -t fuse-registry!"
+    exit 151
+fi
+
+PASSWD_FILE=${FUSE_DIR}/etc/passwd
+PASSWORD=`cat $PASSWD_FILE`
+
+client_message "Connnecting to Fuse shell using: ${PASSWORD}"
+${FUSE_BIN_DIR}/client -h ${OPENSHIFT_FUSE_IP} -u admin -p ${PASSWORD} "\"fabric:join -f --zookeeper-password ${REGIS    TRY_PASSWORD} ${ZOOKEEPER_URL}\""
