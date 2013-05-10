@@ -1,0 +1,2 @@
+fuse-client-openshift-cartridge
+===============================
