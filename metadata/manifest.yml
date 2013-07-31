@@ -1,8 +1,8 @@
 Name: fuse-client
 Cartridge-Short-Name: FUSE_CLIENT
-Display-Name: Fuse Registry 7.2.0
+Display-Name: Fuse Registry 7.3.0
 Description: "Plugs ia Fuse Fabric container to the Fabric Registry running on OpenShift."
-Version: '7.2.0'
+Version: '7.3.0'
 Source-Url: https://github.com/jboss-fuse/fuse-client-openshift-cartridge/archive/master.zip
 License: "ASL 2.0"
 License-Url: http://www.apache.org/licenses/LICENSE-2.0.txt
@@ -13,7 +13,7 @@ Categories:
   - embedded
 Cart-Data:
 Provides:
-  - fuse-client-7.2.0
+  - fuse-client-7.3.0
   - fuse-client
 Publishes:
 Subscribes:
