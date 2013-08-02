@@ -20,4 +20,4 @@ PASSWD_FILE=${FUSE_DIR}/etc/passwd
 PASSWORD=`cat $PASSWD_FILE`
 
 client_message "Connnecting to Fuse shell using: ${PASSWORD}"
-${FUSE_BIN_DIR}/client -h ${OPENSHIFT_FUSE_IP} -a ${OPENSHIFT_FUSE_SSH_PORT} -u admin -p ${PASSWORD} "\"fabric:join -f --zookeeper-password ${REGISTRY_PASSWORD} ${ZOOKEEPER_URL}\""
+${FUSE_BIN_DIR}/client -h ${OPENSHIFT_FUSE_IP} -a ${OPENSHIFT_FUSE_SSH_PORT} -u admin -p ${PASSWORD} "fabric:join -f --zookeeper-password ${REGISTRY_PASSWORD} ${ZOOKEEPER_URL}"
