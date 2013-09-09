@@ -10,7 +10,7 @@ if [ ! -d "$FUSE_DIR" ]; then
     exit 151
 fi
 
-if [ -z "$ZOOKEEPER_URL" ]
+if [ -z "$OPENSHIFT_FUSE_ZOOKEEPER_URL" ]
 then
     client_error "Fuse registry does not exist!  Please create with rhc app create -t fuse-registry!"
     exit 151
@@ -20,4 +20,4 @@ PASSWD_FILE=${FUSE_DIR}/etc/passwd
 PASSWORD=`cat $PASSWD_FILE`
 
 client_message "Connnecting to Fuse shell using: ${PASSWORD}"
-${FUSE_BIN_DIR}/client -h ${OPENSHIFT_FUSE_IP} -a ${OPENSHIFT_FUSE_SSH_PORT} -u admin -p ${PASSWORD} "fabric:join -f --zookeeper-password ${REGISTRY_PASSWORD} ${ZOOKEEPER_URL}"
+${FUSE_BIN_DIR}/client -h ${OPENSHIFT_FUSE_IP} -a ${OPENSHIFT_FUSE_SSH_PORT} -u admin -p ${PASSWORD} "fabric:join -f --zookeeper-password ${OPENSHIFT_FUSE_ZOOKEEPER_PASSWORD} ${OPENSHIFT_FUSE_ZOOKEEPER_URL}"
